@@ -22,7 +22,7 @@ http
           return;
         }
         if (event === 'push') {
-          res.setHeader('Content-Type', 'application/json');
+          // res.setHeader('Content-Type', 'application/json');
           res.end(JSON.stringify({code: 0}));
           let payload = JSON.parse(body);
           console.log(payload);
