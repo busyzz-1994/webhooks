@@ -22,11 +22,13 @@ http
           return;
         }
         if (event === 'push') {
+          console.log('enter_11');
           // res.setHeader('Content-Type', 'application/json');
           res.end(JSON.stringify({code: 0}));
           let payload = JSON.parse(body);
           let repositoryName = payload.repository.name;
           let child = spawn('sh', [`./${repositoryName}.sh`]);
+          console.log(repositoryName);
           let buffers = [];
           child.stdout.on('data', (data) => {
             buffers.push(data);
