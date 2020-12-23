@@ -2,6 +2,7 @@ const http = require('http');
 
 http
   .createServer((req, res) => {
+    console.log('sss');
     console.log('mount');
     //监听github接口调用
     if (req.method === 'POST' && req.url === 'webhook') {
