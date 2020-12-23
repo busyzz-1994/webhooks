@@ -25,8 +25,16 @@ http
           // res.setHeader('Content-Type', 'application/json');
           res.end(JSON.stringify({code: 0}));
           let payload = JSON.parse(body);
-          console.log(payload);
-          // spawn('sh',)
+          let repositoryName = payload.repository.name;
+          let child = spawn('sh', [`./${repositoryName}.sh`]);
+          let buffers = [];
+          child.stdout.on('data', (data) => {
+            buffers.push(data);
+          });
+          child.stdout.on('end', () => {
+            let log = Buffer.concat(buffers);
+            console.log(log.toString());
+          });
         }
       });
     }
