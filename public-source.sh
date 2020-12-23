@@ -5,7 +5,7 @@
 ###
 #!/bin/bash
 DIR=/project/public-source
-cd DIR
+cd $DIR
 git reset --hard origin/master
 git clean -f
 git pull origin master
