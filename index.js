@@ -4,7 +4,8 @@ http
   .createServer((req, res) => {
     console.log('mount');
     //监听github接口调用
-    if (req.method === 'POST' && req.url === 'webhooks') {
+    if (req.method === 'POST' && req.url === 'webhook') {
+      console.log(req);
     }
     console.log(req);
     res.end('ok');
