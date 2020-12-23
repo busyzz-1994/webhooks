@@ -7,8 +7,8 @@ http
     //监听github接口调用
     if (req.method === 'POST' && req.url === 'webhook') {
       console.log(req);
+      console.log('enter');
     }
-    console.log(req);
     res.end('ok');
   })
   .listen(4001);
