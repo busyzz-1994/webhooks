@@ -21,9 +21,9 @@ http
           res.end('Not Allowed');
           return;
         }
-        res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify({code: 0}));
         if (event === 'push') {
+          res.setHeader('Content-Type', 'application/json');
+          res.end(JSON.stringify({code: 0}));
           let payload = JSON.parse(body);
           console.log(payload);
           // spawn('sh',)
