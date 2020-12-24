@@ -26,6 +26,7 @@ http
           res.end(JSON.stringify({code: 0}));
           let payload = JSON.parse(body);
           let repositoryName = payload.repository.name;
+          console.log(repositoryName, 'repositoryName');
           let child = spawn('sh', [`./${repositoryName}.sh`]);
           let buffers = [];
           child.stdout.on('data', (data) => {
