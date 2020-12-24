@@ -7,21 +7,26 @@ function getCrypto(body) {
 }
 http
   .createServer((req, res) => {
+    console.log('enter_req');
     //监听github接口调用
     if (req.method === 'POST' && req.url === '/webhook') {
+      console.log('enter_webhook');
       let buffer = [];
       req.on('data', (data) => {
         buffer.push(data);
       });
       req.on('end', () => {
+        console.log('end');
         const body = Buffer.concat(buffer);
         const event = req.headers['x-github-event'];
         const sign = req.headers['x-hub-signature'];
         if (sign !== getCrypto(body)) {
+          console.log('sin not');
           res.end('Not Allowed');
           return;
         }
         if (event === 'push') {
+          console.log('pushevent');
           // res.setHeader('Content-Type', 'application/json');
           res.end(JSON.stringify({code: 0}));
           let payload = JSON.parse(body);
