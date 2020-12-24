@@ -6,6 +6,7 @@
 ###
 #!/bin/bash
 DIR=/project/blog-music
+echo "执行命令 - blog-music"
 cd $DIR
 echo "清除老代码 - blog-music"
 git reset --hard origin/master
