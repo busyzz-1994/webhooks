@@ -8,6 +8,9 @@ function getCrypto(body) {
 http
   .createServer((req, res) => {
     console.log('enter_req');
+    if (req.method === 'GET' && req.url === '/test') {
+      let child = spawn('sh', [`./blog-music.sh`]);
+    }
     //监听github接口调用
     if (req.method === 'POST' && req.url === '/webhook') {
       console.log('enter_webhook');
