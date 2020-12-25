@@ -9,6 +9,7 @@ http
   .createServer((req, res) => {
     console.log('enter_req');
     if (req.method === 'GET' && req.url === '/test') {
+      console.log('enter test');
       let child = spawn('sh', [`./blog-music.sh`]);
     }
     //监听github接口调用
