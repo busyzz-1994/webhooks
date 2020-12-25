@@ -5,6 +5,7 @@
  # @Description:
 ###
 #!/bin/bash
+echo "entry sh"
 DIR=/project/blog-music
 echo "执行命令 - blog-music"
 cd $DIR
