@@ -1,6 +1,6 @@
 const http = require('http');
 const crypto = require('crypto');
-const secret = 'qq540548050';
+const secret = '123456';
 const {spawn} = require('child_process');
 function getCrypto(body) {
   return 'sha1=' + crypto.createHmac('sha1', secret).update(body).digest('hex');
